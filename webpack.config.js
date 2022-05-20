@@ -5,7 +5,7 @@ const deps = require('./package.json').dependencies;
 
 module.exports = {
   output: {
-    publicPath: 'http://localhost:8090/'
+    publicPath: 'http://localhost:3300/'
   },
 
   resolve: {
@@ -13,7 +13,7 @@ module.exports = {
   },
 
   devServer: {
-    port: 8090,
+    port: 3300,
     historyApiFallback: true
   },
 
@@ -42,7 +42,7 @@ module.exports = {
 
   plugins: [
     new ModuleFederationPlugin({
-      name: 'skeleton',
+      name: 'skaLogin',
       filename: 'remoteEntry.js',
       remotes: {},
       exposes: {
