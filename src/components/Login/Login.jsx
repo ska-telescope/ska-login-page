@@ -13,8 +13,8 @@ import { useTranslation } from 'react-i18next';
 
 function Login() {
   const { t } = useTranslation();
-  let [username, updateName] = useState("");
-  let [password, updatePassword] = useState("");
+  const [username, updateName] = useState('');
+  const [password, updatePassword] = useState('');
 
   function loginClicked() {
     //
@@ -41,14 +41,13 @@ function Login() {
           style={{ minHeight: '100vh' }}
         >
           <Grid item xs={3}>
-
             <Box>
               <Card variant="outlined">
                 <CardContent>
                   <Typography component="h1" variant="h5">
                     {t('signIn')}
                   </Typography>
-                  <Box component="form" onClick={loginClicked} noValidate sx={{ mt: 1 }}>
+                  <Box component="form" onClick={() => loginClicked} noValidate sx={{ mt: 1 }}>
                     <TextField
                       margin="normal"
                       required
@@ -58,9 +57,11 @@ function Login() {
                       name="email"
                       autoComplete="email"
                       autoFocus
-                      onChange={e => { updateName(e.target.value)}}
+                      onChange={e => {
+                        updateName(e.target.value);
+                      }}
                     />
-                    
+
                     <TextField
                       margin="normal"
                       required
@@ -70,7 +71,9 @@ function Login() {
                       type="password"
                       id="password"
                       autoComplete="current-password"
-                      onChange={e => { updatePassword(e.target.value)}}
+                      onChange={e => {
+                        updatePassword(e.target.value);
+                      }}
                     />
 
                     <Button
@@ -83,15 +86,13 @@ function Login() {
                     >
                       {t('signIn')}
                     </Button>
-
                   </Box>
                 </CardContent>
               </Card>
-             </Box>
-
-          </Grid>   
-        </Grid> 
-      </Paper> 
+            </Box>
+          </Grid>
+        </Grid>
+      </Paper>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
-import Login from '../Login/Login.tsx';
+import Login from '../Login/Login';
 
 const theme = createTheme({
   palette: {
