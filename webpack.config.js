@@ -46,7 +46,7 @@ module.exports = {
       filename: 'remoteEntry.js',
       remotes: {},
       exposes: {
-        './ExampleComponent': './src/components/ExampleComponent/ExampleComponent.jsx'
+        './skaLogin': './src/components/App/App.jsx'
       },
       shared: {
         ...deps,
@@ -80,6 +80,12 @@ module.exports = {
           singleton: true,
           requiredVersion: deps['i18next-http-backend']
         },
+        // Material UI
+        '@material-ui/core': { singleton: true, requiredVersion: 'auto' },
+        '@mui/icons-material': { singleton: true, requiredVersion: 'auto' },
+        '@mui/material': { singleton: true, requiredVersion: 'auto', eager: true },
+        '@emotion/react': { singleton: true, requiredVersion: 'auto', eager: true },
+        '@emotion/styled': { singleton: true, requiredVersion: 'auto', eager: true },
         moment: {
           eager: true,
           singleton: true,
