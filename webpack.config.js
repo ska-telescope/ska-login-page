@@ -81,7 +81,6 @@ module.exports = {
           requiredVersion: deps['i18next-http-backend']
         },
         // Material UI
-        '@material-ui/core': { singleton: true, requiredVersion: 'auto' },
         '@mui/icons-material': { singleton: true, requiredVersion: 'auto' },
         '@mui/material': { singleton: true, requiredVersion: 'auto', eager: true },
         '@emotion/react': { singleton: true, requiredVersion: 'auto', eager: true },
