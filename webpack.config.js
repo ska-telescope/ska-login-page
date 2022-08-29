@@ -11,10 +11,17 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.jsx', '.js', '.json']
   },
-
+  experiments: {
+    outputModule: true
+  },
   devServer: {
     port: 3300,
-    historyApiFallback: true
+    historyApiFallback: true,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+      "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+    }
   },
 
   module: {
@@ -44,6 +51,7 @@ module.exports = {
     new ModuleFederationPlugin({
       name: 'skaLogin',
       filename: 'remoteEntry.js',
+      library: {type: 'module'},
       remotes: {},
       exposes: {
         './skaLogin': './src/components/App/App.jsx'
