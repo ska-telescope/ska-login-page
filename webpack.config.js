@@ -18,9 +18,9 @@ module.exports = {
     port: 3300,
     historyApiFallback: true,
     headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-      "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+      'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization'
     }
   },
 
@@ -51,7 +51,7 @@ module.exports = {
     new ModuleFederationPlugin({
       name: 'skaLogin',
       filename: 'remoteEntry.js',
-      library: {type: 'module'},
+      library: { type: 'module' },
       remotes: {},
       exposes: {
         './skaLogin': './src/components/App/App.jsx'
