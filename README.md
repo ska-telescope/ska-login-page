@@ -24,9 +24,17 @@ _All the following notes assume you are at the command prompt for your chosen en
 
 2.  Clone the project from GitHub
 
-3.  Install all the necessary project dependencies by running
+3.  Install the SKAO specific library
 
-        > yarn init
+> npm config set registry https://artefact.skao.int/repository/npm-internal/
+
+> yarn add @ska-telescope/ska-javascript-components@latest
+
+> npm config set registry https://registry.npmjs.org/
+
+4.  Install all the necessary project dependencies by running
+
+> yarn init
 
 ### Running and Building the Application
 
