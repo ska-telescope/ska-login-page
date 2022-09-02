@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
@@ -11,12 +10,12 @@ import Typography from '@mui/material/Typography';
 
 import { useTranslation } from 'react-i18next';
 
-function Login() {
+function Login({ onSuccess, onFailure }) {
   const { t } = useTranslation();
   const [username, updateName] = useState('');
   const [password, updatePassword] = useState('');
 
-  function loginClicked() {
+  function loginClicked(event) {
     //
     // TODO
     // Validate login details are valid.
@@ -27,6 +26,12 @@ function Login() {
     // Retrieve/Store access token
     // Retrieve/Store RBAC information
     //
+    const role = 'dummy role';
+    const token = 'dummy token';
+    event.preventDefault();
+    if (onSuccess) {
+      onSuccess({ username, role, token });
+    }
   }
 
   return (
@@ -47,7 +52,7 @@ function Login() {
                   <Typography component="h1" variant="h5">
                     {t('signIn')}
                   </Typography>
-                  <Box component="form" onClick={() => loginClicked} noValidate sx={{ mt: 1 }}>
+                  <Box component="form" noValidate sx={{ mt: 1 }}>
                     <TextField
                       margin="normal"
                       required
@@ -83,6 +88,7 @@ function Login() {
                       disabled={!(password.length && username.length)}
                       color="secondary"
                       sx={{ mt: 3, mb: 2 }}
+                      onClick={(e) => loginClicked(e)}
                     >
                       {t('signIn')}
                     </Button>
@@ -96,5 +102,6 @@ function Login() {
     </div>
   );
 }
+
 
 export default Login;
