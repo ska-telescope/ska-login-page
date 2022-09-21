@@ -15,6 +15,7 @@
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
     "@mui/material": "^5.8.4",
+    "@mui/icons-material": "^5.8.0",
     "@ska-telescope/ska-javascript-components": "^0.1.4",
     "@testing-library/dom": "^8.17.1",
     "@typescript-eslint/parser": "^5.27.1",

@@ -1,13 +1,8 @@
 import React, { useState } from 'react';
 
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
-import TextField from '@mui/material/TextField';
-import Typography from '@mui/material/Typography';
+import { Box, Button, Card, CardContent, Grid, Paper, TextField, Typography } from '@mui/material';
+import LoginIcon from '@mui/icons-material/Login';
+import Logout from '@mui/icons-material/Logout';
 
 import { useTranslation } from 'react-i18next';
 
@@ -17,6 +12,19 @@ function Login() {
   const [password, updatePassword] = useState('');
 
   function loginClicked() {
+    //
+    // TODO
+    // Validate login details are valid.
+    // Invalid : Return with an error message and update the screen accordingly
+    // Valid : Store in redux and pass control back to the landing page.
+    //
+    // Future
+    // Retrieve/Store access token
+    // Retrieve/Store RBAC information
+    //
+  }
+
+  function cancelClicked() {
     //
     // TODO
     // Validate login details are valid.
@@ -47,7 +55,7 @@ function Login() {
                   <Typography component="h1" variant="h5">
                     {t('signIn')}
                   </Typography>
-                  <Box component="form" onClick={() => loginClicked} noValidate sx={{ mt: 1 }}>
+                  <Box component="form" noValidate sx={{ mt: 1 }}>
                     <TextField
                       margin="normal"
                       required
@@ -75,17 +83,35 @@ function Login() {
                         updatePassword(e.target.value);
                       }}
                     />
-
-                    <Button
-                      type="submit"
-                      fullWidth
-                      variant="contained"
-                      disabled={!(password.length && username.length)}
-                      color="secondary"
-                      sx={{ mt: 3, mb: 2 }}
-                    >
-                      {t('signIn')}
-                    </Button>
+                    <Grid container spacing={1}>
+                      <Grid item xs={6}>
+                        <Button
+                          type="submit"
+                          variant="contained"
+                          fullWidth
+                          disabled={!(password.length && username.length)}
+                          color="secondary"
+                          sx={{ mt: 3, mb: 2 }}
+                          startIcon={<LoginIcon />}
+                          onClick={() => loginClicked}
+                        >
+                          {t('signIn')}
+                        </Button>
+                      </Grid>
+                      <Grid item xs={6}>
+                        <Button
+                          type="submit"
+                          variant="contained"
+                          fullWidth
+                          color="error"
+                          sx={{ mt: 3, mb: 2 }}
+                          startIcon={<Logout />}
+                          onClick={() => cancelClicked}
+                        >
+                          {t('cancel')}
+                        </Button>
+                      </Grid>
+                    </Grid>
                   </Box>
                 </CardContent>
               </Card>
