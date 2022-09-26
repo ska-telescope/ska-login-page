@@ -68,6 +68,11 @@ module.exports = {
           singleton: true,
           requiredVersion: deps['react-dom']
         },
+        'prop-types': {
+          eager: true,
+          singleton: true,
+          requiredVersion: deps['prop-types']
+        },
         i18next: {
           eager: true,
           singleton: true,
