@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
@@ -10,10 +11,10 @@ import Typography from '@mui/material/Typography';
 
 import { useTranslation } from 'react-i18next';
 
-function Login({ onSuccess, onFailure }) {
+function Login({ onSuccess }) {
   const { t } = useTranslation();
-  const [username, updateName] = useState('');
-  const [password, updatePassword] = useState('');
+  const [username, updateName] = React.useState('');
+  const [password, updatePassword] = React.useState('');
 
   function cancelClicked(event) {
     const role = '';
@@ -129,3 +130,6 @@ function Login({ onSuccess, onFailure }) {
 }
 
 export default Login;
+Login.propTypes = {
+  onSuccess: PropTypes.func
+};
