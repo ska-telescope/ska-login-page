@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+<<<<<<< HEAD
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
@@ -7,6 +8,12 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
+=======
+
+import { Box, Button, Card, CardContent, Grid, Paper, TextField, Typography } from '@mui/material';
+import LoginIcon from '@mui/icons-material/Login';
+import Logout from '@mui/icons-material/Logout';
+>>>>>>> master
 
 import { useTranslation } from 'react-i18next';
 
@@ -42,6 +49,19 @@ function Login({ onSuccess, onFailure }) {
     if (onSuccess) {
       onSuccess({ username, role, token });
     }
+  }
+
+  function cancelClicked() {
+    //
+    // TODO
+    // Validate login details are valid.
+    // Invalid : Return with an error message and update the screen accordingly
+    // Valid : Store in redux and pass control back to the landing page.
+    //
+    // Future
+    // Retrieve/Store access token
+    // Retrieve/Store RBAC information
+    //
   }
 
   return (
@@ -90,6 +110,7 @@ function Login({ onSuccess, onFailure }) {
                         updatePassword(e.target.value);
                       }}
                     />
+<<<<<<< HEAD
                     <Grid container spacing={2} alignItems="center" justifyContent="center">
                       <Grid item xs={6}>
                         <Button
@@ -100,6 +121,19 @@ function Login({ onSuccess, onFailure }) {
                           color="secondary"
                           sx={{ mt: 3, mb: 2 }}
                           onClick={e => loginClicked(e)}
+=======
+                    <Grid container spacing={1}>
+                      <Grid item xs={6}>
+                        <Button
+                          type="submit"
+                          variant="contained"
+                          fullWidth
+                          disabled={!(password.length && username.length)}
+                          color="secondary"
+                          sx={{ mt: 3, mb: 2 }}
+                          startIcon={<LoginIcon />}
+                          onClick={() => loginClicked}
+>>>>>>> master
                         >
                           {t('signIn')}
                         </Button>
@@ -107,11 +141,20 @@ function Login({ onSuccess, onFailure }) {
                       <Grid item xs={6}>
                         <Button
                           type="submit"
+<<<<<<< HEAD
                           fullWidth
                           variant="contained"
                           color="error"
                           sx={{ mt: 3, mb: 2 }}
                           onClick={e => cancelClicked(e)}
+=======
+                          variant="contained"
+                          fullWidth
+                          color="error"
+                          sx={{ mt: 3, mb: 2 }}
+                          startIcon={<Logout />}
+                          onClick={() => cancelClicked}
+>>>>>>> master
                         >
                           {t('cancel')}
                         </Button>
