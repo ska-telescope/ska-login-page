@@ -133,3 +133,6 @@ export default Login;
 Login.propTypes = {
   onSuccess: PropTypes.func
 };
+Login.defaultProps = {
+  onSuccess: null
+};

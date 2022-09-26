@@ -22,3 +22,6 @@ export default App;
 App.propTypes = {
   onSuccess: PropTypes.func
 };
+App.defaultProps = {
+  onSuccess: null
+};
