@@ -15,6 +15,16 @@ function Login({ onSuccess, onFailure }) {
   const [username, updateName] = useState('');
   const [password, updatePassword] = useState('');
 
+  function cancelClicked(event) {
+    const role = '';
+    const token = '';
+    const empty = '';
+    event.preventDefault();
+    if (onSuccess) {
+      onSuccess({ empty, role, token });
+    }
+  }
+
   function loginClicked(event) {
     //
     // TODO
@@ -80,18 +90,33 @@ function Login({ onSuccess, onFailure }) {
                         updatePassword(e.target.value);
                       }}
                     />
-
-                    <Button
-                      type="submit"
-                      fullWidth
-                      variant="contained"
-                      disabled={!(password.length && username.length)}
-                      color="secondary"
-                      sx={{ mt: 3, mb: 2 }}
-                      onClick={(e) => loginClicked(e)}
-                    >
-                      {t('signIn')}
-                    </Button>
+                    <Grid container spacing={2} alignItems="center" justifyContent="center">
+                      <Grid item xs={6}>
+                        <Button
+                          type="submit"
+                          fullWidth
+                          variant="contained"
+                          disabled={!(password.length && username.length)}
+                          color="secondary"
+                          sx={{ mt: 3, mb: 2 }}
+                          onClick={e => loginClicked(e)}
+                        >
+                          {t('signIn')}
+                        </Button>
+                      </Grid>
+                      <Grid item xs={6}>
+                        <Button
+                          type="submit"
+                          fullWidth
+                          variant="contained"
+                          color="error"
+                          sx={{ mt: 3, mb: 2 }}
+                          onClick={e => cancelClicked(e)}
+                        >
+                          {t('cancel')}
+                        </Button>
+                      </Grid>
+                    </Grid>
                   </Box>
                 </CardContent>
               </Card>
@@ -102,6 +127,5 @@ function Login({ onSuccess, onFailure }) {
     </div>
   );
 }
-
 
 export default Login;

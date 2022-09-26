@@ -51,7 +51,7 @@ module.exports = {
     new ModuleFederationPlugin({
       name: 'skaLogin',
       filename: 'remoteEntry.js',
-      library: { type: 'module' },
+      // library: { type: 'module' },
       remotes: {},
       exposes: {
         './skaLogin': './src/components/App/App.jsx'
